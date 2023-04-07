@@ -67,7 +67,7 @@ const zooAnimals = [
   function animalNames(arr){
     const displayNames = [];
     arr.forEach(function(element, index, arr) {
-       displayNames.push({'name': arr[index]['animal_name'], 'scientific_name': arr[index]['scientific_name']});
+       displayNames.push(`name: ${arr[index]['animal_name']}, scientific: ${arr[index]['scientific_name']}`);
      });
      return displayNames;
   }
@@ -120,9 +120,13 @@ const zooAnimals = [
   */
 
   function USApop(arr){
-    arr.reduce((accumulator, currentValue) => accumulator + currentValue); 
+    const totalPop = arr.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.population;
+    }, 0); 
+    return totalPop;
   }
-  
+
+  console.log(USApop(zooAnimals));
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
